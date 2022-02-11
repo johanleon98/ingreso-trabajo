@@ -1,2 +1,31 @@
+Para la ejecucion del programa es necesario :
+
 npm install
 npm run dev
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La base de datos se selecciona en la carpeta database.ts ubicada en utils, aparece asi:
+
+
+import { Pool } from "pg";
+
+let conn: any;
+
+if (!conn) {
+  conn = new Pool({
+    user: "postgres",   // el usuario por defecto de postgres
+    password: "bestracing", //contraseña elegida a la hora de instalar posgres
+    host: "localhost",    //predeterminado
+    port: 5432,       //predeterminado
+    database: "tasksdb",   //nombre de la base de datos a crear en postgres
+  });
+}
+
+export { conn };
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Para crear la base de datos se hizo uso de SQL shell asi:
+
+CREATE DATABASE tasksdb;
+
+paraconsultar las bases de datos es:
+\l
